@@ -9,5 +9,7 @@ namespace FinalByMyself_0522.Data
             : base(options)
         {
         }
+
+        public object AppUser { get; internal set; }
     }
 }
