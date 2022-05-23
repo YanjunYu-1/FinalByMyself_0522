@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FinalByMyself_0522.Models
 {
-    public class AppUser
+    public class AppUser : IdentityUser
     {
         //public string Id { get; set; }不需要此行，因为在IdentityUser中有Id
 
