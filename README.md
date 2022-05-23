@@ -100,3 +100,13 @@ Update-Database//更新数据库
 （4）class_RoleDAL不同于其他class，继承的是IdentityRole。在SQL中是Roles
 
 （5）Project Get方法不同于其他的，使用了include，不明白原因
+
+五、建立BLL
+
+（1）BLL中的不同之处：因为有时AppUserDAL中包含IDAL中没有的方法
+```java
+IDAL<AppUser> repo;//只能读取IDAL中有的方法
+public AppUserDAL AppUserDAL;//可以读取APPUserDAL中的方法
+```
+
+（2）RoleBLL中DAL层，genericity泛型T指的是IdentityRole
