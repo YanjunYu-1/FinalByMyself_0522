@@ -88,3 +88,15 @@ Update-Database//更新数据库
 ```
 
 （4）启动后，SQL中应该就有数据
+
+四、建立DAL（Data Access Layer）数据访问层
+
+（1）建立IDAL（注意：此处是interface接口不是class类），里面包含所有用到的“泛型”
+
+（2）所有class中都要调取ApplicationDbContext中的Context，并被class使用
+
+（3）对于单独类型，使用first查找对应Id等数据
+
+（4）class_RoleDAL不同于其他class，继承的是IdentityRole。在SQL中是Roles
+
+（5）Project Get方法不同于其他的，使用了include，不明白原因
