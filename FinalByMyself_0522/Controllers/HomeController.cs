@@ -1,4 +1,7 @@
-﻿using FinalByMyself_0522.Models;
+﻿using FinalByMyself_0522.Data;
+using FinalByMyself_0522.Data.BLL;
+using FinalByMyself_0522.Data.DAL;
+using FinalByMyself_0522.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,27 +9,36 @@ namespace FinalByMyself_0522.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ProjectBLL projectBLL;
+        public HomeController(ApplicationDbContext context)
         {
-            _logger = logger;
+            projectBLL = new ProjectBLL(new ProjectDAL(context));
         }
-
         public IActionResult Index()
         {
-            return View();
+            return View(projectBLL.GetAll());
         }
+        //private readonly ILogger<HomeController> _logger;
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+        //public HomeController(ILogger<HomeController> logger)
+        //{
+        //    _logger = logger;
+        //}
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        //public IActionResult Index()
+        //{
+        //    return View();
+        //}
+
+        //public IActionResult Privacy()
+        //{
+        //    return View();
+        //}
+
+        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        //public IActionResult Error()
+        //{
+        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        //}
     }
 }

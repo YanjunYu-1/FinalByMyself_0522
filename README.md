@@ -110,3 +110,16 @@ public AppUserDAL AppUserDAL;//可以读取APPUserDAL中的方法
 ```
 
 （2）RoleBLL中DAL层，genericity泛型T指的是IdentityRole
+
+六、建立Controller
+
+1、HomeController：修改数据连接的入口，不是从ApplicationDbContext进入，而是从BLL（new DAL）进入
+
+（1）Index中需要传递数据
+```java
+public IActionResult Index()
+{
+    return View(projectBLL.GetAll());
+}
+//数据传入到Index的Model
+```
