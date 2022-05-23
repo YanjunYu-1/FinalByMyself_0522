@@ -5,23 +5,36 @@ namespace FinalByMyself_0522.Data.BLL
 {
     public class TicketBLL
     {
-        TicketDAL ticketDAL;
-        public TicketBLL(TicketDAL td)
+        public TicketDAL repo;
+        public TicketBLL(TicketDAL repoPb)
         {
-            ticketDAL = td;
+            this.repo = repoPb;
+        }
+
+        public void Add(Ticket entity)
+        {
+            repo.Add(entity);
+        }
+        public Ticket Get(Func<Ticket, bool> firstFuction)
+        {
+            return repo.Get(firstFuction);
         }
         public ICollection<Ticket> GetAll()
         {
-            return ticketDAL.GetAll();
+            return repo.GetAll();
+        }
+        public ICollection<Ticket> GetList(Func<Ticket, bool> whereFuction)
+        {
+            return repo.GetList(whereFuction);
         }
 
-        public void Update(Ticket ticket)
+        public void Update(Ticket entity)
         {
-            ticketDAL.Update(ticket);
+            repo.Update(entity);
         }
         public void Save()
         {
-            ticketDAL.Save();
+            repo.Save();
         }
     }
 }

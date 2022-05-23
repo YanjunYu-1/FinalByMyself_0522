@@ -123,3 +123,32 @@ public IActionResult Index()
 }
 //数据传入到Index的Model
 ```
+
+2、TicketsController
+
+（1）安装依赖包
+```java
+Install-Package Microsoft.VisualStudio.Web.CodeGeneration.Design
+```
+
+（2）添加此选项
+
+```java
+~/Views/Shared/_Layout.cshtml
+```
+
+（3）对于数据上下文类，如果不想建立新的context，不要点击“+”，当你没有上下文时需要 + 标记，但如果你已经有它，你可以在框中选择它
+
+（4）迁移并上传SQL
+```java
+Add-Migration AddController //单独更改Course的迁移
+Update-Database//更新数据库
+```
+
+（5）
+```java
+Enumerable.First //方法返回序列中的第一个元素。
+
+Enumerable.FirstOrDefault //方法返回序列中的第一个元素；如果序列中不包含任何元素，则返回默认值。
+```
+
